@@ -11,7 +11,7 @@ const Modal = ({ open, onClose, updateTask }) => {
     }
     const handleModalForm = (event) => {
         event.preventDefault();
-        fetch(`http://localhost:5000/tasks/${updateTask._id}`, {
+        fetch(`https://task-management-web-server.vercel.app/tasks/${updateTask._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

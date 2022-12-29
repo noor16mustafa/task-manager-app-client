@@ -11,7 +11,7 @@ const MyTask = () => {
     const navigate = useNavigate();
     const handleModal = id => {
         setUpdateTask(null)
-        fetch(`http://localhost:5000/tasks/${id}`)
+        fetch(`https://task-management-web-server.vercel.app/tasks/${id}`)
             .then(res => res.json())
             .then(data => {
                 setUpdateTask(data);
@@ -20,7 +20,7 @@ const MyTask = () => {
     }
 
     const handleCompleteBtn = (task) => {
-        fetch(`http://localhost:5000/completeTask/${task._id}`, {
+        fetch(`https://task-management-web-server.vercel.app/completeTask/${task._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -40,7 +40,7 @@ const MyTask = () => {
 
     //delete task
     const handleDeleteTask = task => {
-        fetch(`http://localhost:5000/task/${task._id}`, {
+        fetch(`https://task-management-web-server.vercel.app/task/${task._id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())
@@ -54,7 +54,7 @@ const MyTask = () => {
 
     return (
         <div className="w-full h-screen text-center py-32">
-            <h2 className="text-4xl font-bold">My Task </h2>
+            <h2 className="text-4xl font-bold text-gray-500">My Task </h2>
             <div className='flex flex-col my-10 mx-auto items-center'>
                 {
                     myTasks.map(task =>

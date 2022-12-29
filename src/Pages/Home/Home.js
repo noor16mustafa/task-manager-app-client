@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData, useNavigate } from 'react-router-dom';
+import Loader from '../shared/Loader';
 
 const Home = () => {
     const allTask = useLoaderData();
     const navigate = useNavigate();
+    const [loader, setLoader] = useState(true);
     const handleClick = () => {
         navigate('/main/addTask');
     }
@@ -11,11 +13,18 @@ const Home = () => {
         navigate('/main/addTask');
     }
 
+    if (loader) {
+        <Loader></Loader>
+    }
+    else {
+        setLoader(false);
+    }
+
     return (
         <div className="w-full h-screen text-center py-48 ">
             <div>
                 <h2 className="text-xl font-bold text-gray-500">Add Task</h2>
-                <button onClick={handleClick} className='px-16 hover:bg-gray-400 border border-solid font-bold text-2xl'> + </button>
+                <button onClick={handleClick} className='px-16 bg-gray-300 hover:bg-gray-600 border border-solid font-bold text-2xl'> + </button>
             </div>
             <div className='py-20'>
                 <div className='mx-10 items-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 '>

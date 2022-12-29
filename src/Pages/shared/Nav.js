@@ -1,10 +1,25 @@
 import { getAuth, signOut } from 'firebase/auth';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import app from '../../firebase/firebase.config';
 
 const auth = getAuth(app);
 const Nav = () => {
+
+    //theme change
+    const [theme, setTheme] = useState("light");
+    useEffect(() => {
+        if (theme === "dark") {
+            document.documentElement.classList.add("dark");
+        } else {
+            document.documentElement.classList.remove("dark");
+        }
+    }, [theme]);
+
+    const handleThemeSwitch = () => {
+        setTheme(theme === "dark" ? "light" : "dark")
+    }
+
     let Links = [
         { name: "Home", link: "/main" },
         { name: "Add Task", link: "/main/addTask" },
@@ -47,6 +62,12 @@ const Nav = () => {
                     <button
                         onClick={handleLogOut} className='bg-blue-500 text-white rounded-md ml-2 p-2'>LogOut</button>
 
+                    <button onClick={handleThemeSwitch} className='ml-2 hover:text-black'>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+                        </svg>
+
+                    </button>
                 </ul>
             </div>
         </div>

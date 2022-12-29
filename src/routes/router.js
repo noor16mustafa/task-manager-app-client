@@ -25,7 +25,7 @@ export const router = createBrowserRouter([
             {
                 path: '/main',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/tasks')
+                loader: () => fetch('https://task-management-web-server.vercel.app/tasks')
             },
             {
                 path: '/main/addTask',
@@ -34,12 +34,12 @@ export const router = createBrowserRouter([
             {
                 path: '/main/myTask',
                 element: <MyTask></MyTask>,
-                loader: () => fetch('http://localhost:5000/tasks')
+                loader: () => fetch('https://task-management-web-server.vercel.app/tasks')
             },
             {
                 path: '/main/completeTask',
                 element: <CompleteTask></CompleteTask>,
-                loader: () => fetch('http://localhost:5000/completeTask')
+                loader: () => fetch('https://task-management-web-server.vercel.app/completeTask')
 
             },
         ]

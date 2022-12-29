@@ -6,7 +6,7 @@ const CompleteTask = () => {
     const navigate = useNavigate();
     //delete task
     const handleDeleteTask = task => {
-        fetch(`http://localhost:5000/task/${task._id}`, {
+        fetch(`https://task-management-web-server.vercel.app/task/${task._id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())
@@ -19,7 +19,7 @@ const CompleteTask = () => {
     }
     return (
         <div className="w-full h-screen text-center py-32">
-            <h2 className="text-4xl font-bold">Completed Task </h2>
+            <h2 className="text-4xl font-bold text-gray-500">Completed Task </h2>
             <div className='flex flex-col my-10 mx-auto items-center'>
                 {
                     taskComplete.map(task =>

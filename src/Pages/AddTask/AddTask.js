@@ -28,7 +28,7 @@ const AddTask = () => {
                         image: imagedata.data.url
                     }
                     //save task information to database
-                    fetch('http://localhost:5000/taskCollection', {
+                    fetch('https://task-management-web-server.vercel.app/taskCollection', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',
@@ -57,7 +57,7 @@ const AddTask = () => {
                     className='peer absolute top-0 inset-x-0 w-full h-12
                 opacity-0 z-10 cursor-pointer'/>
                 <div className='bg-gray-500 h-12 w-full pl-5 flex items-center'>
-                    <h1 className="text-lg font-semibold text-black">
+                    <h1 className="text-lg font-semibold">
                         Add a task
                     </h1>
                 </div>
